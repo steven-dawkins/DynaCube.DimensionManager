@@ -9,60 +9,46 @@ using System.Threading.Tasks;
 
 namespace CubeDimensions
 {   
+
+    public class DimensionValue
+    {
+        public readonly string DimensionCode;
+        public readonly string DimensionValueCode;
+
+        public DimensionValue(string dimensionCode, string dimensionValueCode)
+        {
+            this.DimensionCode = dimensionCode;
+            this.DimensionValueCode = dimensionValueCode;
+        }
+
+        public override string ToString()
+        {
+            return DimensionValueCode;
+        }
+    }
+
     public class CubeDimensions2
     {        
-        private readonly HashSet<long> state;
-        private readonly Dictionary<string, Dimension> dimensions;
+        private readonly HashSet<long> state;        
         private readonly DimensionManager dimensionManaager;
 
         public CubeDimensions2()
         {
             this.dimensionManaager = new DimensionManager(new BitSpaceManager(64), new BitSpaceManager(64), new NopPersistantStorage());
-            this.state = new HashSet<long>();
-            this.dimensions = new Dictionary<string, Dimension>();
+            this.state = new HashSet<long>();            
         }
-
-        //private Dimension GetDimension(string dimensionCode)
-        //{
-        //    Dimension result;
-
-        //    if (!dimensions.TryGetValue(dimensionCode, out result))
-        //    {
-        //        result = new Dimension(dimensionCode, bitspace.GetNewAddressSpace(dimensionCode));
-        //        dimensions.Add(dimensionCode, result);    
-        //    }                
-
-        //    return result;
-        //}
-
-        //private int GetAddress(DimensionValue value)
-        //{
-        //    var dimenson = GetDimension(value.DimensionCode);
-
-        //    DimensionValueAddressed result;
-
-        //    if (!dimenson.DimensionValues.TryGetValue(value.DimensionValueCode, out result))
-        //    {
-        //        var address = (int)dimenson.AddressSpace.GetAddress();
-        //        result = new DimensionValueAddressed(value.DimensionCode, value.DimensionValueCode, address);
-        //        dimenson.DimensionValues.Add(value.DimensionValueCode, result);
-        //    }          
-
-        //    return result.Address;
-        //}
+        
         
         public void AddPoint(IEnumerable<DimensionValue> point)
         {
             long address = GetAddress(point);
-
 
             //Console.WriteLine("Add: {0}-{1}", String.Join(",", point.Select(p => p.DimensionValueCode)), address);
             state.Add(address);
         }
 
         private long GetAddress(IEnumerable<DimensionValue> point)
-        {
-            //int address = point.Sum(p => GetAddress(p));
+        {            
             long address = 0;
 
             foreach (var p in point)

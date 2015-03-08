@@ -1,1 +1,1 @@
-﻿GDP, CPI, EMP
+﻿CPI, EMP, GDP
