@@ -59,9 +59,9 @@ namespace CubeDimensions.Tests
             Approvals.Verify(String.Join(", ", cpiCountries));
         }
 
-        private CubeDimensions CreateCubeDimensions()
+        private CubeDimensionTracker CreateCubeDimensions()
         {
-            var c = new CubeDimensions();
+            var c = new CubeDimensionTracker();
 
             c.AddPoint(new[] { gbr, gdp });
             c.AddPoint(new[] { gbr, cpi });
@@ -81,9 +81,9 @@ namespace CubeDimensions.Tests
         }
    
 
-        private CubeDimensions CreateDimensions()
+        private CubeDimensionTracker CreateDimensions()
         {
-            var c = new CubeDimensions();
+            var c = new CubeDimensionTracker();
 
             Dictionary<string, List<DimensionValue>> dimensions = new Dictionary<string, List<DimensionValue>>();
 

@@ -7,16 +7,16 @@ namespace CubeDimensions.Repl
 {
     public class BigCubeDimensions
     {
-        private readonly CubeDimensions cubeDimensions;
+        private readonly CubeDimensionTracker cubeDimensions;
 
         public BigCubeDimensions()
         {
             this.cubeDimensions = CreateDimensions();
         }
 
-        private CubeDimensions CreateDimensions()
+        private CubeDimensionTracker CreateDimensions()
         {
-            var c = new CubeDimensions();
+            var c = new CubeDimensionTracker();
 
             Dictionary<string, List<DimensionValue>> dimensions = new Dictionary<string, List<DimensionValue>>();
 

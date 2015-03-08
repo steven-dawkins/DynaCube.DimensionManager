@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace CubeDimensions
 {   
-    public class CubeDimensions
+    public class CubeDimensionTracker
     {        
         private readonly HashSet<long> state;        
         private readonly DimensionManager dimensionManager;
 
-        public CubeDimensions()
+        public CubeDimensionTracker()
         {
             this.dimensionManager = new DimensionManager(new BitSpaceManager(64), new BitSpaceManager(64), new NopPersistantStorage());
             this.state = new HashSet<long>();            
