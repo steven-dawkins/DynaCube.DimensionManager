@@ -30,11 +30,11 @@ namespace CubeDimensions
     public class CubeDimensions2
     {        
         private readonly HashSet<long> state;        
-        private readonly DimensionManager dimensionManaager;
+        private readonly DimensionManager dimensionManager;
 
         public CubeDimensions2()
         {
-            this.dimensionManaager = new DimensionManager(new BitSpaceManager(64), new BitSpaceManager(64), new NopPersistantStorage());
+            this.dimensionManager = new DimensionManager(new BitSpaceManager(64), new BitSpaceManager(64), new NopPersistantStorage());
             this.state = new HashSet<long>();            
         }
         
@@ -53,7 +53,7 @@ namespace CubeDimensions
 
             foreach (var p in point)
             {
-                var dimension = dimensionManaager.AddOrGetDimension(p.DimensionCode);
+                var dimension = dimensionManager.AddOrGetDimension(p.DimensionCode);
                 var value = dimension.AddOrGetValue(p.DimensionValueCode, p.DimensionValueCode);
                 address += value.Index;
             }
@@ -62,7 +62,7 @@ namespace CubeDimensions
 
         public IEnumerable<CubeDimensionValue> Enumerate(IEnumerable<DimensionValue> point, string dimensionCode)
         {
-            var dimension = dimensionManaager.AddOrGetDimension(dimensionCode);
+            var dimension = dimensionManager.AddOrGetDimension(dimensionCode);
 
             var address = GetAddress(point);
             foreach(var dimensionValue in dimension.Values)
