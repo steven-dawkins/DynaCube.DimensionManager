@@ -1,21 +1,22 @@
 ﻿using System;
 using Replify;
 using System.Collections.Generic;
+using DynaCube.Core;
 
 namespace CubeDimensions.Repl
 {
     public class BigCubeDimensions
     {
-        private readonly CubeDimensions2 cubeDimensions;
+        private readonly CubeDimensions cubeDimensions;
 
         public BigCubeDimensions()
         {
             this.cubeDimensions = CreateDimensions();
         }
 
-        private CubeDimensions2 CreateDimensions()
+        private CubeDimensions CreateDimensions()
         {
-            var c = new CubeDimensions2();
+            var c = new CubeDimensions();
 
             Dictionary<string, List<DimensionValue>> dimensions = new Dictionary<string, List<DimensionValue>>();
 

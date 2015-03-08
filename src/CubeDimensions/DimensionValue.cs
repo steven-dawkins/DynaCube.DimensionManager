@@ -12,6 +12,11 @@ namespace DynaCube.Core
         public string DimensionValueCode { get; private set; }
         public string DimensionValueName { get; private set; }
 
+        public DimensionValue(string dimensionCode, string dimensionValueCode)
+            : this(dimensionCode, dimensionValueCode, dimensionValueCode)
+        {
+        }
+
         public DimensionValue(string dimensionCode, string dimensionValueCode, string dimensionValueName)
         {
             if (String.IsNullOrWhiteSpace(dimensionCode))

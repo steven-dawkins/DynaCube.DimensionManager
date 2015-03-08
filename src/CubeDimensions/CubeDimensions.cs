@@ -9,35 +9,16 @@ using System.Threading.Tasks;
 
 namespace CubeDimensions
 {   
-
-    public class DimensionValue
-    {
-        public readonly string DimensionCode;
-        public readonly string DimensionValueCode;
-
-        public DimensionValue(string dimensionCode, string dimensionValueCode)
-        {
-            this.DimensionCode = dimensionCode;
-            this.DimensionValueCode = dimensionValueCode;
-        }
-
-        public override string ToString()
-        {
-            return DimensionValueCode;
-        }
-    }
-
-    public class CubeDimensions2
+    public class CubeDimensions
     {        
         private readonly HashSet<long> state;        
         private readonly DimensionManager dimensionManager;
 
-        public CubeDimensions2()
+        public CubeDimensions()
         {
             this.dimensionManager = new DimensionManager(new BitSpaceManager(64), new BitSpaceManager(64), new NopPersistantStorage());
             this.state = new HashSet<long>();            
-        }
-        
+        }        
         
         public void AddPoint(IEnumerable<DimensionValue> point)
         {            

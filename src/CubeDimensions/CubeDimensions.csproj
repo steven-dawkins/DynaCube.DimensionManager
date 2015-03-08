@@ -45,7 +45,7 @@
     <Compile Include="BitSpace\AddressSpaceManager.cs" />
     <Compile Include="BitSpace\BitSpaceManager.cs" />
     <Compile Include="CubeDimension.cs" />
-    <Compile Include="CubeDimensions2.cs" />
+    <Compile Include="CubeDimensions.cs" />
     <Compile Include="CubeDimensionValue.cs" />
     <Compile Include="Dimension.cs" />
     <Compile Include="DimensionManager.cs" />

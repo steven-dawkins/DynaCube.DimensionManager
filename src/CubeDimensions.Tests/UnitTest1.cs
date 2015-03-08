@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ApprovalTests;
 using ApprovalTests.Reporters;
 using System.Collections.Generic;
+using DynaCube.Core;
 
 namespace CubeDimensions.Tests
 {
@@ -58,9 +59,9 @@ namespace CubeDimensions.Tests
             Approvals.Verify(String.Join(", ", cpiCountries));
         }
 
-        private CubeDimensions2 CreateCubeDimensions()
+        private CubeDimensions CreateCubeDimensions()
         {
-            var c = new CubeDimensions2();
+            var c = new CubeDimensions();
 
             c.AddPoint(new[] { gbr, gdp });
             c.AddPoint(new[] { gbr, cpi });
@@ -80,9 +81,9 @@ namespace CubeDimensions.Tests
         }
    
 
-        private CubeDimensions2 CreateDimensions()
+        private CubeDimensions CreateDimensions()
         {
-            var c = new CubeDimensions2();
+            var c = new CubeDimensions();
 
             Dictionary<string, List<DimensionValue>> dimensions = new Dictionary<string, List<DimensionValue>>();
 
