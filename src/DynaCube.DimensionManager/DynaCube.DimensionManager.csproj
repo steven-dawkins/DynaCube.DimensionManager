@@ -7,8 +7,8 @@
     <ProjectGuid>{5EA99C3C-5A18-4512-A04E-A411A4B62579}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CubeDimensions</RootNamespace>
-    <AssemblyName>CubeDimensions</AssemblyName>
+    <RootNamespace>DynaCube.DimensionManager</RootNamespace>
+    <AssemblyName>DynaCube.DimensionManager</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,9 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddressSpaceManagerRepositoryFactory.cs" />
-    <Compile Include="AddressSpaceManagerState.cs" />
-    <Compile Include="BitSpaceManagerState.cs" />
+    <Compile Include="Factories\AddressSpaceManagerRepositoryFactory.cs" />
+    <Compile Include="Serialization\Models\AddressSpaceManagerState.cs" />
+    <Compile Include="Serialization\Models\BitSpaceManagerState.cs" />
     <Compile Include="BitSpace\AddressSpaceManager.cs" />
     <Compile Include="BitSpace\BitSpaceManager.cs" />
     <Compile Include="CubeDimension.cs" />
