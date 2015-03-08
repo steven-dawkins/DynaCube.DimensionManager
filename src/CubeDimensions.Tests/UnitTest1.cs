@@ -78,12 +78,7 @@ namespace CubeDimensions.Tests
         {
             var c = CreateDimensions();           
         }
-
-        [TestMethod]
-        public void BigTest2()
-        {
-            var c = CreateDimensions();
-        }
+   
 
         private CubeDimensions2 CreateDimensions()
         {
@@ -92,7 +87,7 @@ namespace CubeDimensions.Tests
             Dictionary<string, List<DimensionValue>> dimensions = new Dictionary<string, List<DimensionValue>>();
 
 
-            for(var i = 0; i < 5; i++)
+            for(var i = 0; i < 3; i++)
             {
                 var dimensionCode = "Dimension" + i;
                 dimensions.Add(dimensionCode, new List<DimensionValue>());
@@ -104,7 +99,7 @@ namespace CubeDimensions.Tests
             }
 
             var rand = new Random();
-            for (var i = 0; i < 1000000; i++)
+            for (var i = 0; i < 10000; i++)
             {
                 var point = new List<DimensionValue>();
                 

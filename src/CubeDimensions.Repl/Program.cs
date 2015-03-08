@@ -20,7 +20,7 @@ namespace CubeDimensions.Repl
             Dictionary<string, List<DimensionValue>> dimensions = new Dictionary<string, List<DimensionValue>>();
 
 
-            for (var i = 0; i < 5; i++)
+            for (var i = 0; i < 3; i++)
             {
                 var dimensionCode = "Dimension" + i;
                 dimensions.Add(dimensionCode, new List<DimensionValue>());

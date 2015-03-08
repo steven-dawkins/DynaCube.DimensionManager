@@ -40,11 +40,37 @@ namespace CubeDimensions
         
         
         public void AddPoint(IEnumerable<DimensionValue> point)
-        {
-            long address = GetAddress(point);
+        {            
+            var values = point.Select(p => dimensionManager.AddOrGetDimension(p.DimensionCode).AddOrGetValue(p.DimensionValueCode, p.DimensionValueCode));
 
-            //Console.WriteLine("Add: {0}-{1}", String.Join(",", point.Select(p => p.DimensionValueCode)), address);
-            state.Add(address);
+            AddValuePartial(0, new Stack<CubeDimensionValue>(values), 0, true);
+        }
+
+        private void AddValuePartial(long index, Stack<CubeDimensionValue> right, int dimensions, bool includeSuperAggregate)
+        {
+            if (right.Count == 0)
+            {
+                if (state.Count % 100000 == 0)
+                {
+                    Console.WriteLine(state.Count);
+                }
+
+                if (dimensions == 0 && !includeSuperAggregate)
+                {
+                    return;
+                }
+
+                state.Add(index);               
+            }
+            else
+            {
+                var head = right.Pop();
+
+                AddValuePartial(index + head.Index, right, dimensions + 1, includeSuperAggregate);
+                AddValuePartial(index, right, dimensions, includeSuperAggregate);
+
+                right.Push(head);
+            }
         }
 
         private long GetAddress(IEnumerable<DimensionValue> point)
