@@ -8,15 +8,12 @@ namespace DynaCube.Core.Repositories
 {
     public class InMemoryAddressSpaceManagerRepository : IAddressSpaceManagerRepository
     {
-        private string _dimensionCode;
-
         private List<int> _allocatedBits;
         private Queue<int> _releasedBits;
 
         public InMemoryAddressSpaceManagerRepository()
         {
             LocalIndex = -1;
-            _dimensionCode = null;
             _allocatedBits = null;
             _releasedBits = null;
         }

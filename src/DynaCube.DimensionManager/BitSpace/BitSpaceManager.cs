@@ -29,8 +29,6 @@ namespace DynaCube.Core.BitSpace
         /// <param name="numberOfBits">number of bits to manage</param>
         public BitSpaceManager(int numberOfBits, IBitSpaceManagerRepository repository, AddressSpaceManagerRepositoryFactory addressSpaceManagerFactory, bool randomize = true)
         {
-            Trace.WriteLine(string.Format("Initialising BitSpaceManager with {0} bits", numberOfBits));
-            
             if (numberOfBits > 64)
             {
                 throw new ArgumentException("bit range exceeded: " + numberOfBits, "numberOfBits");
